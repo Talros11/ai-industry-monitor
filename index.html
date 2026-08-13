@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Industry Monitor — Project Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --teal:#1D9E75;
+    --teal-dark:#14785A;
+    --teal-soft:#E7F5EF;
+    --ink:#0E1A16;
+    --slate:#475149;
+    --muted:#6B7670;
+    --line:#E3E8E5;
+    --bg:#FFFFFF;
+    --bg-alt:#F6F9F7;
+    --amber:#C77B14;
+    --red:#C0463B;
+    --shadow:0 1px 2px rgba(14,26,22,.04),0 8px 24px rgba(14,26,22,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',monospace}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+
+  /* ---------- HEADER ---------- */
+  header{
+    background:radial-gradient(120% 140% at 80% -10%,#163A2E 0%,#0E1A16 55%,#0A130F 100%);
+    color:#fff;
+    padding:88px 0 76px;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(29,158,117,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.07) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(80% 80% at 70% 0%,#000,transparent 75%);
+  }
+  header .wrap{position:relative;z-index:1}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(29,158,117,.14);
+    border:1px solid rgba(29,158,117,.4);
+    color:#7FE3BE;
+    padding:7px 14px;border-radius:100px;
+    font-size:13px;font-weight:600;letter-spacing:.02em;
+    margin-bottom:26px;
+  }
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:#46E0A6;box-shadow:0 0 0 4px rgba(70,224,166,.18)}
+  header h1{
+    font-size:54px;line-height:1.05;font-weight:900;letter-spacing:-.025em;
+    max-width:760px;margin-bottom:20px;
+  }
+  header h1 .accent{color:var(--teal);
+    background:linear-gradient(120deg,#46E0A6,#1D9E75);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  header p.lede{font-size:19px;color:#B9C6BF;max-width:620px;font-weight:400}
+  .hstats{display:flex;gap:40px;margin-top:42px;flex-wrap:wrap}
+  .hstat .n{font-size:30px;font-weight:800;font-family:'JetBrains Mono',monospace;color:#fff}
+  .hstat .l{font-size:13px;color:#8FA39A;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:72px 0;border-bottom:1px solid var(--line)}
+  section.alt{background:var(--bg-alt)}
+  .eyebrow{
+    display:flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:14px;
+  }
+  .eyebrow .num{
+    width:26px;height:26px;border-radius:7px;display:grid;place-items:center;
+    background:var(--teal-soft);color:var(--teal-dark);font-family:'JetBrains Mono',monospace;font-size:13px;
+  }
+  h2{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:18px;max-width:720px}
+  .intro{font-size:17px;color:var(--slate);max-width:680px;margin-bottom:36px}
+
+  /* ---------- PAIN CARDS ---------- */
+  .pains{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .pain{
+    background:var(--bg);border:1px solid var(--line);border-radius:14px;
+    padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+  }
+  .pain::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--teal)}
+  .pain .ico{
+    width:42px;height:42px;border-radius:10px;background:var(--teal-soft);
+    color:var(--teal-dark);display:grid;place-items:center;font-size:18px;margin-bottom:16px;
+  }
+  .pain .quote{font-size:16px;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:14px}
+  .pain .quote .big{color:var(--teal-dark);font-family:'JetBrains Mono',monospace;font-weight:700}
+  .pain .src{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:7px}
+  .pain .src i{color:var(--teal)}
+
+  /* ---------- TABLE ---------- */
+  .tablecard{border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:#fff}
+  table{width:100%;border-collapse:collapse}
+  thead th{
+    background:var(--ink);color:#D7E0DB;text-align:left;
+    font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    padding:14px 18px;
+  }
+  tbody td{padding:16px 18px;border-bottom:1px solid var(--line);font-size:14.5px;vertical-align:middle}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:nth-child(even){background:var(--bg-alt)}
+  .tool-name{font-weight:700;color:var(--ink)}
+  .pill{display:inline-block;padding:3px 10px;border-radius:100px;font-size:12px;font-weight:600;font-family:'JetBrains Mono',monospace}
+  .pill.ind{background:var(--teal-soft);color:var(--teal-dark)}
+  .moat{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700}
+  .moat.weak{color:var(--red)}
+  .moat.mod{color:var(--amber)}
+  .complaint{color:var(--slate)}
+
+  /* ---------- CALLOUT ---------- */
+  .callout{
+    margin-top:28px;display:flex;gap:18px;align-items:flex-start;
+    background:linear-gradient(135deg,#0E1A16,#163A2E);color:#fff;
+    border-radius:14px;padding:26px 28px;
+  }
+  .callout .cio{font-size:26px;color:#46E0A6;margin-top:2px}
+  .callout .ct{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7FE3BE;margin-bottom:6px}
+  .callout p{font-size:17px;color:#E4EDE9;font-weight:500;line-height:1.5}
+  .callout p b{color:#fff}
+
+  /* ---------- OPPORTUNITIES ---------- */
+  .opps{display:flex;flex-direction:column;gap:16px}
+  .opp{
+    display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 26px;box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  .opp .rank{
+    font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;color:#fff;
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+    background:linear-gradient(135deg,#1D9E75,#14785A);
+  }
+  .opp .body h3{font-size:18px;font-weight:700;margin-bottom:5px}
+  .opp .body .moat-line{font-size:13.5px;color:var(--slate)}
+  .opp .body .moat-line .tag{color:var(--teal-dark);font-weight:700}
+  .score{text-align:center;flex-shrink:0}
+  .score .val{font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:700;color:var(--teal-dark);line-height:1}
+  .score .val span{font-size:15px;color:var(--muted)}
+  .score .bar{width:90px;height:6px;border-radius:100px;background:var(--line);margin-top:8px;overflow:hidden}
+  .score .bar i{display:block;height:100%;width:90%;background:linear-gradient(90deg,#46E0A6,#1D9E75);border-radius:100px}
+  .score .lab{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
+
+  /* ---------- PIPELINE ---------- */
+  .pipeline{display:flex;align-items:stretch;gap:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}
+  .stage{
+    flex:1;min-width:0;background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:22px 18px;text-align:center;box-shadow:var(--shadow);position:relative;
+  }
+  .stage .ico{
+    width:50px;height:50px;border-radius:13px;margin:0 auto 14px;display:grid;place-items:center;
+    font-size:20px;color:#fff;background:linear-gradient(135deg,#1D9E75,#14785A);
+  }
+  .stage .sn{font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--teal);font-weight:700;letter-spacing:.05em}
+  .stage h4{font-size:15.5px;font-weight:700;margin:3px 0 8px}
+  .stage .desc{font-size:12.5px;color:var(--slate);line-height:1.45;margin-bottom:12px;min-height:54px}
+  .stage .out{
+    font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--teal-dark);
+    background:var(--teal-soft);border-radius:7px;padding:6px 8px;display:inline-block;
+  }
+  .arrow{display:flex;align-items:center;color:var(--teal);font-size:16px;padding:0 6px;flex-shrink:0}
+
+  /* ---------- DESIGN DECISIONS ---------- */
+  .decisions{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px}
+  .dec{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:20px 22px;box-shadow:var(--shadow)}
+  .dec .di{
+    width:40px;height:40px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;
+    background:var(--teal-soft);color:var(--teal-dark);font-size:17px;
+  }
+  .dec .q{font-size:14.5px;font-weight:700;margin-bottom:4px}
+  .dec .a{font-size:13.5px;color:var(--slate)}
+
+  /* ---------- NEXT STEPS / PG ---------- */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;box-shadow:var(--shadow)}
+  .panel h3{font-size:16px;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .panel h3 i{color:var(--teal)}
+  .pg-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .pg-list li{display:flex;gap:13px;align-items:flex-start;font-size:14px}
+  .pg-list .step{
+    font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#fff;
+    background:var(--teal);width:22px;height:22px;border-radius:6px;display:grid;place-items:center;flex-shrink:0;margin-top:1px;
+  }
+  .pg-list b{color:var(--ink)}
+  .pg-list span{color:var(--slate)}
+  .report{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--ink);color:#D7E0DB;border-radius:12px;padding:20px;line-height:1.7;overflow-x:auto}
+  .report .k{color:#7FE3BE}
+  .report .v{color:#fff}
+  .report .dim{color:#7C8B83}
+  .report .hl{color:#F0B544}
+
+  .cta{
+    margin-top:40px;text-align:center;
+    background:linear-gradient(135deg,#0E1A16,#163A2E);border-radius:18px;padding:48px 32px;color:#fff;position:relative;overflow:hidden;
+  }
+  .cta::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.08) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(70% 90% at 50% 0%,#000,transparent 70%)}
+  .cta .ci{position:relative;z-index:1}
+  .cta .clock{font-size:34px;color:#46E0A6;margin-bottom:16px}
+  .cta h3{font-size:26px;font-weight:800;letter-spacing:-.01em;margin-bottom:10px}
+  .cta p{color:#B9C6BF;font-size:16px;max-width:480px;margin:0 auto}
+  .cta .schedule{display:inline-flex;align-items:center;gap:10px;margin-top:24px;background:rgba(29,158,117,.16);border:1px solid rgba(29,158,117,.45);color:#7FE3BE;padding:11px 20px;border-radius:100px;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:40px 0;text-align:center;color:var(--muted);font-size:13px}
+  footer .mono{color:var(--slate)}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:880px){
+    header h1{font-size:38px}
+    .pains{grid-template-columns:1fr}
+    .decisions{grid-template-columns:1fr}
+    .twocol{grid-template-columns:1fr}
+    .pipeline{flex-direction:column}
+    .arrow{transform:rotate(90deg);padding:8px 0;justify-content:center}
+    .opp{grid-template-columns:auto 1fr;gap:16px}
+    .opp .score{grid-column:2;text-align:left}
+    .score .bar{margin-left:0}
+  }
+
+  /* ---------- PRINT / PDF ---------- */
+  @media print{
+    body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    header{padding:48px 0}
+    section{padding:36px 0;break-inside:avoid}
+    .pain,.opp,.stage,.dec,.panel,.callout,.cta{break-inside:avoid}
+    .pipeline{flex-wrap:wrap}
+    a[href]:after{content:""}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span> AI Industry Monitor · Autonomous Research System</div>
+    <h1>I built a machine that finds <span class="accent">market opportunities</span> while I sleep.</h1>
+    <p class="lede">A five-agent AI pipeline that scans professional-services markets every week, validates pain against consulting-firm data, and surfaces ranked opportunities — no human in the loop.</p>
+    <div class="hstats">
+      <div class="hstat"><div class="n">5</div><div class="l">AI Agents</div></div>
+      <div class="hstat"><div class="n">4</div><div class="l">Industries Tracked</div></div>
+      <div class="hstat"><div class="n">9/10</div><div class="l">Top Opportunity Score</div></div>
+      <div class="hstat"><div class="n">Sun 08:00</div><div class="l">Weekly · Automatic</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= SECTION 1 — PROBLEM ================= -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">01</span> The Problem</div>
+    <h2>The Problem I Set Out to Solve</h2>
+    <p class="intro">Professional-services markets — legal, insurance, real estate, hospitality — are being disrupted by AI. New tools launch weekly, pain points are documented by McKinsey, PwC and KPMG, and market windows open and close fast. Manual research takes hours and misses the critical signals. So I stopped researching by hand.</p>
+    <div class="pains">
+      <div class="pain">
+        <div class="ico"><i class="fa-solid fa-scale-balanced"></i></div>
+        <div class="quote">Lawyers spend <span class="big">2.5+ hours</span> daily on non-billable admin work.</div>
+        <div class="src"><i class="fa-brands fa-reddit"></i> Reddit · r/Lawyertalk</div>
+      </div>
+      <div class="pain">
+        <div class="ico"><i class="fa-solid fa-umbrella"></i></div>
+        <div class="quote">Insurance agents are stuck with an <span class="big">AMS not built</span> for agent workflows.</div>
+        <div class="src"><i class="fa-solid fa-file-lines"></i> PwC Report · 2024</div>
+      </div>
+      <div class="pain">
+        <div class="ico"><i class="fa-solid fa-hotel"></i></div>
+        <div class="quote">Hospitality faces a <span class="big">47% staffing gap</span> versus 2019 levels.</div>
+        <div class="src"><i class="fa-solid fa-file-lines"></i> Deloitte · 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION 2 — EXISTING SOLUTIONS ================= -->
+<section class="alt">
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">02</span> The Landscape</div>
+    <h2>What Already Exists — And What's Missing</h2>
+    <p class="intro">Before building anything, the system maps the incumbents in each market: what they do, what users actually complain about, and whether they have a defensible moat. The pattern that emerged was hard to miss.</p>
+    <div class="tablecard">
+      <table>
+        <thead>
+          <tr><th>Tool</th><th>Industry</th><th>What it does</th><th>Main complaint</th><th>Moat</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tool-name">Harvey AI</td>
+            <td><span class="pill ind">Legal</span></td>
+            <td>AI legal research</td>
+            <td class="complaint">Brutal pricing, low adoption</td>
+            <td><span class="moat weak"><i class="fa-solid fa-shield-halved"></i> Weak</span></td>
+          </tr>
+          <tr>
+            <td class="tool-name">EliseAI</td>
+            <td><span class="pill ind">Real Estate</span></td>
+            <td>Property management AI</td>
+            <td class="complaint">Overpriced vs competitors</td>
+            <td><span class="moat weak"><i class="fa-solid fa-shield-halved"></i> Weak</span></td>
+          </tr>
+          <tr>
+            <td class="tool-name">HotelStack</td>
+            <td><span class="pill ind">Hospitality</span></td>
+            <td>AI PMS system</td>
+            <td class="complaint">Fragmented features</td>
+            <td><span class="moat mod"><i class="fa-solid fa-shield-halved"></i> Moderate</span></td>
+          </tr>
+          <tr>
+            <td class="tool-name">AgentRoleplay</td>
+            <td><span class="pill ind">Insurance</span></td>
+            <td>AI sales training</td>
+            <td class="complaint">Not a full AMS solution</td>
+            <td><span class="moat weak"><i class="fa-solid fa-shield-halved"></i> Weak</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <div class="cio"><i class="fa-solid fa-lightbulb"></i></div>
+      <div>
+        <div class="ct">Key Insight</div>
+        <p><b>0 existing tools scored fully positive.</b> Main complaints cluster around pricing, inconsistent quality, and weak moats. <b>= Market opportunity.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION 3 — OPPORTUNITIES ================= -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">03</span> The Signal</div>
+    <h2>What the Data Revealed</h2>
+    <p class="intro">Cross-referencing validated pain against weak incumbents, the system ranked the openings. The top three all scored 9/10 — and unlike the incumbents, each one has a structurally strong moat.</p>
+    <div class="opps">
+      <div class="opp">
+        <div class="rank">1</div>
+        <div class="body">
+          <h3>Insurance AI middleware for carriers</h3>
+          <div class="moat-line">Moat: <span class="tag">Strong</span> — deep integrations into carrier systems create high switching costs.</div>
+        </div>
+        <div class="score">
+          <div class="val">9<span>/10</span></div>
+          <div class="bar"><i></i></div>
+          <div class="lab">Opportunity</div>
+        </div>
+      </div>
+      <div class="opp">
+        <div class="rank">2</div>
+        <div class="body">
+          <h3>Hospitality workforce marketplace</h3>
+          <div class="moat-line">Moat: <span class="tag">Strong</span> — network effects compound as both sides of the marketplace grow.</div>
+        </div>
+        <div class="score">
+          <div class="val">9<span>/10</span></div>
+          <div class="bar"><i></i></div>
+          <div class="lab">Opportunity</div>
+        </div>
+      </div>
+      <div class="opp">
+        <div class="rank">3</div>
+        <div class="body">
+          <h3>SMB legal contract automation</h3>
+          <div class="moat-line">Moat: <span class="tag">Strong</span> — switching costs lock in customers once contracts live in the system.</div>
+        </div>
+        <div class="score">
+          <div class="val">9<span>/10</span></div>
+          <div class="bar"><i></i></div>
+          <div class="lab">Opportunity</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION 4 — THE SYSTEM ================= -->
+<section class="alt">
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">04</span> The Build</div>
+    <h2>How I Built a Machine to Find These Opportunities</h2>
+    <p class="intro">Five specialized agents, each with a single clear responsibility, passing structured data down a pipeline. Airtable sits in the middle as the queryable source of truth.</p>
+    <div class="pipeline">
+      <div class="stage">
+        <div class="ico"><i class="fa-solid fa-satellite-dish"></i></div>
+        <div class="sn">AGENT 01</div>
+        <h4>Collector</h4>
+        <div class="desc">Scans sources across all four industries for fresh signals and new tools.</div>
+        <div class="out">→ raw signals</div>
+      </div>
+      <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="stage">
+        <div class="ico"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="sn">AGENT 02</div>
+        <h4>Reviewer</h4>
+        <div class="desc">Filters noise, deduplicates, and scores each signal for relevance.</div>
+        <div class="out">→ clean dataset</div>
+      </div>
+      <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="stage">
+        <div class="ico"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <div class="sn">AGENT 03</div>
+        <h4>Pain Hunter</h4>
+        <div class="desc">Matches signals to documented pain validated by consulting-firm data.</div>
+        <div class="out">→ validated pains</div>
+      </div>
+      <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="stage">
+        <div class="ico"><i class="fa-solid fa-lightbulb"></i></div>
+        <div class="sn">AGENT 04</div>
+        <h4>Opportunity Generator</h4>
+        <div class="desc">Turns pain + weak incumbents into scored, ranked opportunities.</div>
+        <div class="out">→ ranked opps</div>
+      </div>
+      <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="stage">
+        <div class="ico"><i class="fa-solid fa-file-export"></i></div>
+        <div class="sn">AGENT 05</div>
+        <h4>Reporter</h4>
+        <div class="desc">Compiles the weekly report and delivers it — automatically.</div>
+        <div class="out">→ weekly report</div>
+      </div>
+    </div>
+
+    <div class="decisions">
+      <div class="dec">
+        <div class="di"><i class="fa-solid fa-diagram-project"></i></div>
+        <div><div class="q">Why 5 agents, not 1?</div><div class="a">Reliability. Each agent has one clear responsibility, so failures are isolated and output is verifiable at every stage.</div></div>
+      </div>
+      <div class="dec">
+        <div class="di"><i class="fa-solid fa-table"></i></div>
+        <div><div class="q">Why Airtable as the central DB?</div><div class="a">Queryable, visual, and easy to verify by eye — I can audit any step of the pipeline without reading code.</div></div>
+      </div>
+      <div class="dec">
+        <div class="di"><i class="fa-solid fa-building-columns"></i></div>
+        <div><div class="q">Why consulting firms as sources?</div><div class="a">McKinsey, PwC, KPMG and Deloitte data is validated, quantified and credible — pain backed by numbers, not anecdote.</div></div>
+      </div>
+      <div class="dec">
+        <div class="di"><i class="fa-solid fa-gavel"></i></div>
+        <div><div class="q">Why the Paul Graham framework?</div><div class="a">Brutal honesty over false positives. Better to kill a weak idea early than chase a market that isn't really there.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION 5 — NEXT STEPS ================= -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">05</span> Next Steps</div>
+    <h2>From Data to Action</h2>
+    <p class="intro">Ranked opportunities are only useful if they survive scrutiny. Every candidate runs through a Paul Graham–style evaluation before it earns a place in the weekly report.</p>
+    <div class="twocol">
+      <div class="panel">
+        <h3><i class="fa-solid fa-list-check"></i> The Paul Graham Evaluation</h3>
+        <ul class="pg-list">
+          <li><span class="step">1</span><span><b>Is the problem real?</b> Pressure-test the pain — frequent and painful, or imagined?</span></li>
+          <li><span class="step">2</span><span><b>Who feels it?</b> Validate exactly who suffers and how badly, today.</span></li>
+          <li><span class="step">3</span><span><b>Who's competing?</b> Map incumbents and ask why anyone would switch.</span></li>
+          <li><span class="step">4</span><span><b>First 10 customers?</b> Name them concretely — or admit you can't.</span></li>
+          <li><span class="step">5</span><span><b>2-week MVP?</b> Define the smallest test of the riskiest assumption.</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3><i class="fa-solid fa-envelope-open-text"></i> Weekly Report Output</h3>
+        <div class="report">
+<span class="dim"># ai-monitor · weekly digest</span>
+<span class="k">date</span>: <span class="v">Sun 08:00</span>
+<span class="k">industries</span>: <span class="v">4 scanned</span>
+<span class="k">signals</span>: <span class="v">reviewed &amp; scored</span>
+<span class="dim">─────────────────────────</span>
+<span class="k">top_opportunity</span>:
+  <span class="v">Insurance AI middleware</span>
+  <span class="k">score</span>: <span class="hl">9/10</span>
+  <span class="k">moat</span>: <span class="v">Strong</span>
+<span class="k">runner_up</span>:
+  <span class="v">Hospitality marketplace</span>
+  <span class="k">score</span>: <span class="hl">9/10</span>
+<span class="dim">─────────────────────────</span>
+<span class="k">status</span>: <span class="v">delivered ✓</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="ci">
+        <div class="clock"><i class="fa-solid fa-clock"></i></div>
+        <h3>Every Sunday at 08:00</h3>
+        <p>The full pipeline runs end to end and the report lands on its own. Automatic, repeatable, and built to get smarter every week.</p>
+        <div class="schedule"><i class="fa-solid fa-robot"></i> automatic · no human in the loop</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="mono">AI Industry Monitor</span> — autonomous opportunity research · 5 agents · 4 industries · built &amp; operated by Tal
+  </div>
+</footer>
+
+</body>
+</html>
