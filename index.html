@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Industry Monitor — Project Showcase</title>
+<title>AI Industry Monitor | Tal Rosenberg</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -247,29 +247,29 @@
 <!-- ================= HEADER ================= -->
 <header>
   <div class="wrap">
-    <div class="badge"><span class="dot"></span> AI Industry Monitor · Autonomous Research System</div>
-    <h1>I built a machine that finds <span class="accent">market opportunities</span> while I sleep.</h1>
-    <p class="lede">A five-agent AI pipeline that scans professional-services markets every week, validates pain against consulting-firm data, and surfaces ranked opportunities — no human in the loop.</p>
+    <div class="badge"><span class="dot"></span> AI Industry Monitor · Research System</div>
+    <h1>A research system that looks for <span class="accent">evidenced problems</span> in professional services.</h1>
+    <p class="lede">Five AI agents scan legal, insurance, real estate and hospitality markets every week, check each pain point against consulting-firm data and practitioner communities, map the incumbents and rank the opportunities an AI-native company could be built on. Everything it finds is kept in an Airtable CRM.</p>
     <div class="hstats">
       <div class="hstat"><div class="n">5</div><div class="l">AI Agents</div></div>
       <div class="hstat"><div class="n">4</div><div class="l">Industries Tracked</div></div>
       <div class="hstat"><div class="n">9/10</div><div class="l">Top Opportunity Score</div></div>
-      <div class="hstat"><div class="n">Sun 08:00</div><div class="l">Weekly · Automatic</div></div>
+      <div class="hstat"><div class="n">Sun 08:00</div><div class="l">Weekly scheduled run</div></div>
     </div>
   </div>
 </header>
 
-<!-- ================= SECTION 1 — PROBLEM ================= -->
+<!-- ================= SECTION 1, PROBLEM ================= -->
 <section>
   <div class="wrap">
     <div class="eyebrow"><span class="num">01</span> The Problem</div>
     <h2>The Problem I Set Out to Solve</h2>
-    <p class="intro">Professional-services markets — legal, insurance, real estate, hospitality — are being disrupted by AI. New tools launch weekly, pain points are documented by McKinsey, PwC and KPMG, and market windows open and close fast. Manual research takes hours and misses the critical signals. So I stopped researching by hand.</p>
+    <p class="intro">Legal, insurance, real estate and hospitality run on labour-intensive workflows that AI is starting to change. Consulting firms such as McKinsey, PwC, KPMG and Deloitte put numbers on these problems. Practitioner communities show whether the people doing the work describe the same problem. Doing this by hand every week is slow, so I built a system to do it.</p>
     <div class="pains">
       <div class="pain">
         <div class="ico"><i class="fa-solid fa-scale-balanced"></i></div>
         <div class="quote">Lawyers spend <span class="big">2.5+ hours</span> daily on non-billable admin work.</div>
-        <div class="src"><i class="fa-brands fa-reddit"></i> Reddit · r/Lawyertalk</div>
+        <div class="src"><i class="fa-brands fa-reddit"></i> Practitioner check · Reddit r/Lawyertalk</div>
       </div>
       <div class="pain">
         <div class="ico"><i class="fa-solid fa-umbrella"></i></div>
@@ -285,45 +285,41 @@
   </div>
 </section>
 
-<!-- ================= SECTION 2 — EXISTING SOLUTIONS ================= -->
+<!-- ================= SECTION 2, EXISTING SOLUTIONS ================= -->
 <section class="alt">
   <div class="wrap">
     <div class="eyebrow"><span class="num">02</span> The Landscape</div>
-    <h2>What Already Exists — And What's Missing</h2>
-    <p class="intro">Before building anything, the system maps the incumbents in each market: what they do, what users actually complain about, and whether they have a defensible moat. The pattern that emerged was hard to miss.</p>
+    <h2>What Already Exists</h2>
+    <p class="intro">For each market the system maps the incumbents: what they do and what their users complain about. The gaps between them are where it looks for openings.</p>
     <div class="tablecard">
       <table>
         <thead>
-          <tr><th>Tool</th><th>Industry</th><th>What it does</th><th>Main complaint</th><th>Moat</th></tr>
+          <tr><th>Tool</th><th>Industry</th><th>What it does</th><th>Main complaint</th></tr>
         </thead>
         <tbody>
           <tr>
             <td class="tool-name">Harvey AI</td>
             <td><span class="pill ind">Legal</span></td>
             <td>AI legal research</td>
-            <td class="complaint">Brutal pricing, low adoption</td>
-            <td><span class="moat weak"><i class="fa-solid fa-shield-halved"></i> Weak</span></td>
+            <td class="complaint">Pricing aimed at large firms</td>
           </tr>
           <tr>
             <td class="tool-name">EliseAI</td>
             <td><span class="pill ind">Real Estate</span></td>
             <td>Property management AI</td>
             <td class="complaint">Overpriced vs competitors</td>
-            <td><span class="moat weak"><i class="fa-solid fa-shield-halved"></i> Weak</span></td>
           </tr>
           <tr>
             <td class="tool-name">HotelStack</td>
             <td><span class="pill ind">Hospitality</span></td>
             <td>AI PMS system</td>
             <td class="complaint">Fragmented features</td>
-            <td><span class="moat mod"><i class="fa-solid fa-shield-halved"></i> Moderate</span></td>
           </tr>
           <tr>
             <td class="tool-name">AgentRoleplay</td>
             <td><span class="pill ind">Insurance</span></td>
             <td>AI sales training</td>
             <td class="complaint">Not a full AMS solution</td>
-            <td><span class="moat weak"><i class="fa-solid fa-shield-halved"></i> Weak</span></td>
           </tr>
         </tbody>
       </table>
@@ -332,24 +328,24 @@
       <div class="cio"><i class="fa-solid fa-lightbulb"></i></div>
       <div>
         <div class="ct">Key Insight</div>
-        <p><b>0 existing tools scored fully positive.</b> Main complaints cluster around pricing, inconsistent quality, and weak moats. <b>= Market opportunity.</b></p>
+        <p>User complaints cluster around <b>pricing</b> and <b>uneven quality</b>. Those gaps are the starting point for the opportunity stage.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= SECTION 3 — OPPORTUNITIES ================= -->
+<!-- ================= SECTION 3, OPPORTUNITIES ================= -->
 <section>
   <div class="wrap">
     <div class="eyebrow"><span class="num">03</span> The Signal</div>
     <h2>What the Data Revealed</h2>
-    <p class="intro">Cross-referencing validated pain against weak incumbents, the system ranked the openings. The top three all scored 9/10 — and unlike the incumbents, each one has a structurally strong moat.</p>
+    <p class="intro">Crossing validated pain with the gaps left by incumbents, the system ranked the openings. The top three each scored 9 out of 10 on its rubric.</p>
     <div class="opps">
       <div class="opp">
         <div class="rank">1</div>
         <div class="body">
           <h3>Insurance AI middleware for carriers</h3>
-          <div class="moat-line">Moat: <span class="tag">Strong</span> — deep integrations into carrier systems create high switching costs.</div>
+          <div class="moat-line">Moat thesis: <span class="tag">Integration</span> deep integrations into carrier systems create high switching costs.</div>
         </div>
         <div class="score">
           <div class="val">9<span>/10</span></div>
@@ -361,7 +357,7 @@
         <div class="rank">2</div>
         <div class="body">
           <h3>Hospitality workforce marketplace</h3>
-          <div class="moat-line">Moat: <span class="tag">Strong</span> — network effects compound as both sides of the marketplace grow.</div>
+          <div class="moat-line">Moat thesis: <span class="tag">Network</span> network effects compound as both sides of the marketplace grow.</div>
         </div>
         <div class="score">
           <div class="val">9<span>/10</span></div>
@@ -373,7 +369,7 @@
         <div class="rank">3</div>
         <div class="body">
           <h3>SMB legal contract automation</h3>
-          <div class="moat-line">Moat: <span class="tag">Strong</span> — switching costs lock in customers once contracts live in the system.</div>
+          <div class="moat-line">Moat thesis: <span class="tag">Switching cost</span> switching costs lock in customers once contracts live in the system.</div>
         </div>
         <div class="score">
           <div class="val">9<span>/10</span></div>
@@ -385,11 +381,11 @@
   </div>
 </section>
 
-<!-- ================= SECTION 4 — THE SYSTEM ================= -->
+<!-- ================= SECTION 4, THE SYSTEM ================= -->
 <section class="alt">
   <div class="wrap">
     <div class="eyebrow"><span class="num">04</span> The Build</div>
-    <h2>How I Built a Machine to Find These Opportunities</h2>
+    <h2>How It Works</h2>
     <p class="intro">Five specialized agents, each with a single clear responsibility, passing structured data down a pipeline. Airtable sits in the middle as the queryable source of truth.</p>
     <div class="pipeline">
       <div class="stage">
@@ -412,7 +408,7 @@
         <div class="ico"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
         <div class="sn">AGENT 03</div>
         <h4>Pain Hunter</h4>
-        <div class="desc">Matches signals to documented pain validated by consulting-firm data.</div>
+        <div class="desc">Matches signals to pain quantified by consulting firms and checked against practitioner communities.</div>
         <div class="out">→ validated pains</div>
       </div>
       <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
@@ -428,7 +424,7 @@
         <div class="ico"><i class="fa-solid fa-file-export"></i></div>
         <div class="sn">AGENT 05</div>
         <h4>Reporter</h4>
-        <div class="desc">Compiles the weekly report and delivers it — automatically.</div>
+        <div class="desc">Compiles the weekly report and publishes it to Notion.</div>
         <div class="out">→ weekly report</div>
       </div>
     </div>
@@ -440,34 +436,34 @@
       </div>
       <div class="dec">
         <div class="di"><i class="fa-solid fa-table"></i></div>
-        <div><div class="q">Why Airtable as the central DB?</div><div class="a">Queryable, visual, and easy to verify by eye — I can audit any step of the pipeline without reading code.</div></div>
+        <div><div class="q">Why Airtable as the central DB?</div><div class="a">Queryable, visual, and easy to verify by eye, I can audit any step of the pipeline without reading code.</div></div>
       </div>
       <div class="dec">
         <div class="di"><i class="fa-solid fa-building-columns"></i></div>
-        <div><div class="q">Why consulting firms as sources?</div><div class="a">McKinsey, PwC, KPMG and Deloitte data is validated, quantified and credible — pain backed by numbers, not anecdote.</div></div>
+        <div><div class="q">Why consulting firms as sources?</div><div class="a">Their reports put a number on a problem. Practitioner communities such as Reddit are then used to check that the people doing the work describe the same pain.</div></div>
       </div>
       <div class="dec">
         <div class="di"><i class="fa-solid fa-gavel"></i></div>
-        <div><div class="q">Why the Paul Graham framework?</div><div class="a">Brutal honesty over false positives. Better to kill a weak idea early than chase a market that isn't really there.</div></div>
+        <div><div class="q">Why the Paul Graham framework?</div><div class="a">It forces a clear answer: build it, pivot or kill it. A weak idea is cheaper to drop early.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= SECTION 5 — NEXT STEPS ================= -->
+<!-- ================= SECTION 5, NEXT STEPS ================= -->
 <section>
   <div class="wrap">
     <div class="eyebrow"><span class="num">05</span> Next Steps</div>
     <h2>From Data to Action</h2>
-    <p class="intro">Ranked opportunities are only useful if they survive scrutiny. Every candidate runs through a Paul Graham–style evaluation before it earns a place in the weekly report.</p>
+    <p class="intro">Ranked opportunities are only useful if they survive scrutiny. Every candidate goes through a Paul Graham style evaluation before it reaches the weekly report.</p>
     <div class="twocol">
       <div class="panel">
         <h3><i class="fa-solid fa-list-check"></i> The Paul Graham Evaluation</h3>
         <ul class="pg-list">
-          <li><span class="step">1</span><span><b>Is the problem real?</b> Pressure-test the pain — frequent and painful, or imagined?</span></li>
+          <li><span class="step">1</span><span><b>Is the problem real?</b> Pressure-test the pain: frequent and costly, or imagined?</span></li>
           <li><span class="step">2</span><span><b>Who feels it?</b> Validate exactly who suffers and how badly, today.</span></li>
           <li><span class="step">3</span><span><b>Who's competing?</b> Map incumbents and ask why anyone would switch.</span></li>
-          <li><span class="step">4</span><span><b>First 10 customers?</b> Name them concretely — or admit you can't.</span></li>
+          <li><span class="step">4</span><span><b>First 10 customers?</b> Name them concretely, or say that you can't.</span></li>
           <li><span class="step">5</span><span><b>2-week MVP?</b> Define the smallest test of the riskiest assumption.</span></li>
         </ul>
       </div>
@@ -495,9 +491,9 @@
     <div class="cta">
       <div class="ci">
         <div class="clock"><i class="fa-solid fa-clock"></i></div>
-        <h3>Every Sunday at 08:00</h3>
-        <p>The full pipeline runs end to end and the report lands on its own. Automatic, repeatable, and built to get smarter every week.</p>
-        <div class="schedule"><i class="fa-solid fa-robot"></i> automatic · no human in the loop</div>
+        <h3>Runs on a weekly schedule</h3>
+        <p>The pipeline runs end to end every Sunday at 08:00. I review the report and decide what is worth a deeper look.</p>
+        <div class="schedule"><i class="fa-solid fa-user-check"></i> scheduled run · human review</div>
       </div>
     </div>
   </div>
@@ -505,7 +501,7 @@
 
 <footer>
   <div class="wrap">
-    <span class="mono">AI Industry Monitor</span> — autonomous opportunity research · 5 agents · 4 industries · built &amp; operated by Tal
+    <span class="mono">AI Industry Monitor</span> · 5 agents · 4 industries · built and run by Tal Rosenberg
   </div>
 </footer>
 
